@@ -33,6 +33,48 @@ namespace BulkyBookStore.Controllers
             return View();
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Category obj)
+        {
+            if(ModelState.IsValid)
+            {
+                _db.Categories.Add(obj);
+                _db.SaveChanges();
+                TempData["success"] = "Category created successfully";
+                return RedirectToAction("Index");
+            }
+            return View(obj);
+        }
+
+
+
+        #region Delete
+
+        public IActionResult Delete(int? Id)
+        {
+            if (Id == null)
+                return NotFound();
+            var category = _db.Categories.Find(Id);
+            if (category == null)
+                return NotFound();
+            return View(category);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteCategory(Category obj)
+        {
+
+            _db.Categories.Remove(obj);
+            _db.SaveChanges();
+            TempData["success"] = "Category deleted successfully";
+            return RedirectToAction("Index");
+        }
+
+        #endregion
+
+        #region Edit
         // GET
         public IActionResult Edit(int? Id)
         {
@@ -44,43 +86,19 @@ namespace BulkyBookStore.Controllers
             return View(category);
         }
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public IActionResult Edit(Category obj)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        _db.Categories.Update(obj);
-        //        _db.SaveChanges();
-        //        return RedirectToAction("Index");
-        //    }
-        //    return View(obj);
-        //}
-
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Category obj)
+        public IActionResult Edit(Category obj)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                _db.Categories.Add(obj);
+                _db.Categories.Update(obj);
                 _db.SaveChanges();
+                TempData["success"] = "Category updated successfully";
                 return RedirectToAction("Index");
             }
             return View(obj);
         }
-
-        public IActionResult Delete(Category obj)
-        {
-            return RedirectToAction("Index");
-        }
-
-        //public IActionResult Edit(int? categoryId)
-        //{
-        //    if (categoryId == null || categoryId == 0)
-        //        return NotFound();
-        //    var category = _db.Categories.Find(categoryId);
-        //    return View(category);
-        //}
+        #endregion
     }
 }
