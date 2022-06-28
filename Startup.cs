@@ -1,4 +1,6 @@
 ﻿using BulkyBook.DataAccess;
+using BulkyBook.DataAccess.Repository;
+using BulkyBook.DataAccess.Repository.IRepository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -24,6 +26,7 @@ namespace BulkyBookStore
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(
                 Configuration.GetConnectionString("DefaultConnection")
                 ));
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddRazorPages().AddRazorRuntimeCompilation();
         }
 

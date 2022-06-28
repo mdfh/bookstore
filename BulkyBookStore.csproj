@@ -68,6 +68,7 @@
     <None Remove="BulkyBook.Utility\obj\Debug\net6.0\refint\BulkyBook.Utility.dll" />
     <None Remove="BulkyBook.Utility\bin\Debug\net6.0\BulkyBook.Utility.dll" />
     <None Remove="BulkyBook.Utility\bin\Debug\net6.0\BulkyBook.Utility.pdb" />
+    <None Remove="BulkyBook.DataAccess\obj\Debug\net6.0\BulkyBook.DataAccess.csproj.AssemblyReference.cache" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Category\" />
@@ -91,6 +92,15 @@
     <Compile Remove="BulkyBook.DataAccess\Migrations\20220614144904_AddCategoryToModel.cs" />
     <Compile Remove="BulkyBook.DataAccess\Migrations\20220614144904_AddCategoryToModel.Designer.cs" />
     <Compile Remove="BulkyBook.Utility\obj\Debug\net6.0\BulkyBook.Utility.AssemblyInfo.cs" />
+    <Compile Remove="BulkyBook.DataAccess\Repository\IRepository\ICategoryRepository.cs" />
+    <Compile Remove="BulkyBook.DataAccess\Repository\CategoryRepository.cs" />
+    <Compile Remove="BulkyBook.DataAccess\Repository\IRepository\IRepository.cs" />
+    <Compile Remove="BulkyBook.DataAccess\Repository\Repository.cs" />
+    <Compile Remove="BulkyBook.DataAccess\Repository\IRepository\IUnitOfWork.cs" />
+    <Compile Remove="BulkyBook.DataAccess\Repository\UnitOfWork.cs" />
+    <Compile Remove="BulkyBook.DataAccess\Repository\CategoryRepository %28copy%29.cs" />
+    <Compile Remove="BulkyBook.Models\Category %28copy%29.cs" />
+    <Compile Remove="BulkyBook.DataAccess\Repository\IRepository\ICategoryRepository %28copy%29.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="BulkyBook.DataAccess\obj\BulkyBook.DataAccess.csproj.nuget.dgspec.json" />
