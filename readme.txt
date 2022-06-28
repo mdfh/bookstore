@@ -7,3 +7,6 @@ dotnet ef
 dotnet ef migrations add initial
 
 dotnet ef database update
+
+### dotnet code genertor
+https://docs.microsoft.com/en-us/aspnet/core/fundamentals/tools/dotnet-aspnet-codegenerator?view=aspnetcore-6.0

@@ -5,8 +5,10 @@
     <CopyRefAssembliesToPublishDirectory>false</CopyRefAssembliesToPublishDirectory>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'BulkyBookStore' " />
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.6" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.6" />
   </ItemGroup>
 
   <ItemGroup>
@@ -14,7 +16,6 @@
     <None Remove="Microsoft.EntityFrameworkCore.SqlServer" />
     <None Remove="Microsoft.EntityFrameworkCore.Tools" />
     <None Remove="Microsoft.EntityFrameworkCore.Design" />
-    <None Remove="Views\Category\" />
     <None Remove="BulkyBook.DataAccess\obj\Debug\net6.0\BulkyBook.DataAccess.csproj.AssemblyReference.cache" />
     <None Remove="BulkyBook.DataAccess\obj\BulkyBook.DataAccess.csproj.nuget.g.props" />
     <None Remove="BulkyBook.DataAccess\obj\BulkyBook.DataAccess.csproj.nuget.g.targets" />
@@ -69,9 +70,13 @@
     <None Remove="BulkyBook.Utility\bin\Debug\net6.0\BulkyBook.Utility.dll" />
     <None Remove="BulkyBook.Utility\bin\Debug\net6.0\BulkyBook.Utility.pdb" />
     <None Remove="BulkyBook.DataAccess\obj\Debug\net6.0\BulkyBook.DataAccess.csproj.AssemblyReference.cache" />
+    <None Remove="Microsoft.VisualStudio.Web.CodeGeneration.Design" />
+    <None Remove="Areas\Admin\Views\Category\" />
+    <None Remove="Areas\Customer\Views\Home\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\Category\" />
+    <Folder Include="Areas\Admin\Views\Category\" />
+    <Folder Include="Areas\Customer\Views\Home\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="BulkyBook.DataAccess\Class1.cs" />
