@@ -45,6 +45,7 @@ namespace BulkyBook.Models
 
         [Required]
         public int CoverTypeId { get; set; }
+
         public CoverType CoverType { get; set; }
     }
 }
