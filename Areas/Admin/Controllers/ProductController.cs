@@ -6,12 +6,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BulkyBookStore.Controllers
 {
-    public class ProductController : Controller
+    [Area("Admin")]
+    public class CoverTypeController : Controller
     {
-
         private readonly IUnitOfWork _unitOfWork;
 
-        public ProductController(IUnitOfWork unitOfWork)
+        public CoverTypeController(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }

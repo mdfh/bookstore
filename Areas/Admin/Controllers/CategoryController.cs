@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BulkyBookStore.Controllers
 {
+    [Area("Admin")]
     public class CategoryController : Controller
     {
 
