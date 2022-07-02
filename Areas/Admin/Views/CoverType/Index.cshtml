@@ -1,56 +1,35 @@
-﻿@model IEnumerable<CoverType>
-@{
-    ViewData["Title"] = "Index";
-}
+﻿@model IEnumerable<BulkyBook.Models.Product>
 
-<div class="container p-3">
-    <div class="row pt-4">
-        <div class="col-6">
-            <h2 class="text-primary">Cover Type List</h2>
-        </div>
 
-        <div class="col-6 text-end">
-            <a asp-controller="Category" asp-action="Create" class="btn btn-primary">
-               <i class="bi bi-plus-circle"></i> &nbsp; Create New Cover Type
-            </a>
-        </div>
-    </div>
+<div class="row pb-3">
+    @foreach (var product in Model)
+    {
+        <div class="col-lg-3 col-md-6">
+            <div class="row p-2">
+                <div class="col-12 p-1" style="border:1px solid #008cba; border-radius: 5px;">
+                    <div class="card">
+                        <img src="@product.ImageUrl" class="card-img-top rounded" />
 
-    <table class="table table-bordered table-striped" style="width:100%">
-        <thead>
-            <tr>
-                <th>
-                    Cover Type Name
-                </th>
-                <th>
-                    Edit
-                </th>
-                <th>
-                    Delete
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var obj in Model)
-            {
-            <tr>
-                <td width="50%">
-                    @obj.Name
-                </td>
-                <td>
-                    <div class="w-75 btn-group" role="group">
-                        <a asp-controller="CoverType" asp-action="Edit" asp-route-id="@obj.Id"
-                           class="btn btn-primary mx-2"><i class="bi bi-pencil-square"></i>Edit</a>
+                        <div class="card-body">
+                            <div class="pl-1">
+                                <p class="card-title h5 text-primary">@product.Title</p>
+                                <p class="card-title text-info">by <b>@product.Author</b></p>
+                            </div>
+                            <div class="pl-1">
+                                <p>List Price: <strike><b>$@product.ListPrice.ToString("0.00")</b></strike></p>
+                            </div>
+                            <div class="pl-1">
+                                <p>As low as: <b>$@product.Price100.ToString("0.00")</b></p>
+                            </div>
+                        </div>
                     </div>
-                </td>
-                <td>
-                    <div class="w-75 btn-group" role="group">
-                        <a asp-controller="CoverType" asp-route-id="@obj.Id" asp-action="Delete"
-                           class="btn btn-primary mx-2"><i class="bi bi-trash-fill"></i>Delete</a>
+                    <div>
+                        <a asp-action="Details" class="btn btn-primary form-control" asp-route-productId="@product.Id">
+                            Details
+                        </a>
                     </div>
-                </td>
-            </tr>
-            }
-        </tbody>
-    </table>
+                </div>
+            </div>
+        </div>
+    }
 </div>

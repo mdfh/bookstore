@@ -303,6 +303,8 @@
     <Folder Include="Areas\Customer\Views\Home\" />
     <Folder Include="Areas\Admin\Views\CoverType\" />
     <Folder Include="Areas\Admin\Views\Product\" />
+    <Folder Include="wwwroot\images\" />
+    <Folder Include="wwwroot\images\products\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="BulkyBook.DataAccess\Class1.cs" />
@@ -377,6 +379,7 @@
     <Compile Remove="BulkyBook.DataAccess\obj\Debug\net6.0\BulkyBook.DataAccess.AssemblyInfo.cs" />
     <Compile Remove="BulkyBook.Models\obj\Debug\net6.0\BulkyBook.Models.AssemblyInfo.cs" />
     <Compile Remove="BulkyBook.Utility\obj\Debug\net6.0\BulkyBook.Utility.AssemblyInfo.cs" />
+    <Compile Remove="BulkyBook.Models\ShoppingCart.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="BulkyBook.DataAccess\obj\BulkyBook.DataAccess.csproj.nuget.dgspec.json" />
@@ -425,6 +428,8 @@
     <Content Remove="BulkyBook.DataAccess\bin\Debug\net6.0\BulkyBook.DataAccess.runtimeconfig.json" />
     <Content Remove="BulkyBook.Models\bin\Debug\net6.0\BulkyBook.Models.deps.json" />
     <Content Remove="BulkyBook.Utility\bin\Debug\net6.0\BulkyBook.Utility.deps.json" />
+    <Content Remove="wwwroot\images\" />
+    <Content Remove="wwwroot\images\products\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="BulkyBook.DataAccess\BulkyBook.DataAccess.csproj">
