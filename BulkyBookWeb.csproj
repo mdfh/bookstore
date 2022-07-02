@@ -13,6 +13,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.6" />
   </ItemGroup>
 
   <ItemGroup>
@@ -297,6 +298,7 @@
     <None Remove="BulkyBook.Utility\bin\Debug\net6.0\BulkyBook.Utility.dll" />
     <None Remove="BulkyBook.Utility\obj\Debug\net6.0\ref\BulkyBook.Utility.dll" />
     <None Remove="BulkyBook.Utility\bin\Debug\net6.0\BulkyBook.Utility.pdb" />
+    <None Remove="Microsoft.AspNetCore.Identity.UI" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Views\Category\" />
