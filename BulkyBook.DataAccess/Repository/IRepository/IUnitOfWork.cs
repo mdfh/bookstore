@@ -7,6 +7,7 @@ namespace BulkyBook.DataAccess.Repository.IRepository
         public ICategoryRepository Category { get; }
         public ICoverTypeRepository CoverType { get; }
         public IProductRepository Product { get; }
+        public ICompanyRepository Company { get; }
         public void Save();
     }
 }
