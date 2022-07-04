@@ -402,6 +402,7 @@
     <None Remove="BulkyBook.Utility\obj\Debug\net6.0\ref\BulkyBook.Utility.dll" />
     <None Remove="BulkyBook.Utility\bin\Debug\net6.0\BulkyBook.Utility.pdb" />
     <None Remove="Stripe.net" />
+    <None Remove="Areas\Admin\Views\Order\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Views\Category\" />
@@ -412,6 +413,7 @@
     <Folder Include="wwwroot\images\products\" />
     <Folder Include="Areas\Admin\Views\Company\" />
     <Folder Include="Areas\Customer\Views\Cart\" />
+    <Folder Include="Areas\Admin\Views\Order\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="BulkyBook.DataAccess\Class1.cs" />

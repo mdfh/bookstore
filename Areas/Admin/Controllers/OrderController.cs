@@ -1,0 +1,85 @@
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Security.Claims;
+using BulkyBook.DataAccess.Repository.IRepository;
+using BulkyBook.Models;
+using BulkyBook.Models.ViewModels;
+using BulkyBook.Utility;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+
+// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+
+namespace BulkyBookStore.Controllers
+{
+    [Area("Admin")]
+    [Authorize]
+    public class OrderController : Controller
+    {
+        private readonly IUnitOfWork _unitOfWork;
+        public OrderVM OrderVM { get; set; }
+
+        public OrderController(IUnitOfWork unitOfWork)
+        {
+            _unitOfWork = unitOfWork;
+        }
+
+        // GET: /<controller>/
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        public IActionResult Details(int orderId)
+        {
+            OrderVM = new()
+            {
+                OrderHeader = _unitOfWork.OrderHeader.GetFirstOrDefault(u => u.Id == orderId, includeProperties: "ApplicationUser"),
+                OrderDetail = _unitOfWork.OrderDetail.GetAll(u => u.OrderId == orderId, includeProperties: "Product"),
+            };
+            return View(OrderVM);
+        }
+
+        #region API Call
+
+        [HttpGet]
+        public IActionResult GetAll(string? status)
+        {
+            IEnumerable<OrderHeader> orderHeaders;
+
+            if(User.IsInRole(SD.Role_Admin) || User.IsInRole(SD.Role_Employee))
+            {
+                orderHeaders = _unitOfWork.OrderHeader.GetAll(includeProperties: "ApplicationUser");
+            }
+            else
+            {
+                var claimsIdentity = (ClaimsIdentity)User.Identity;
+                var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+
+                orderHeaders = _unitOfWork.OrderHeader.GetAll(u => u.ApplicationUserId == claim.Value,
+                    includeProperties: "ApplicationUser");
+            }
+
+            if(status != null)
+            {
+                switch(status)
+                {
+                    case "pending":
+                        orderHeaders = orderHeaders.Where(u => u.PaymentStatus == SD.PaymentStatusDelayedPayment);
+                        break;
+                    case "inprocess":
+                        orderHeaders = orderHeaders.Where(u => u.PaymentStatus == SD.StatusInProcess);
+                        break;
+                    case "completed":
+                        orderHeaders = orderHeaders.Where(u => u.PaymentStatus == SD.StatusShipped);
+                        break;
+                }
+            }
+
+            return Json(new { data = orderHeaders });
+        }
+
+        #endregion
+
+    }
+}

@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Stripe;
 
 namespace BulkyBookStore
 {
@@ -29,7 +30,7 @@ namespace BulkyBookStore
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(
                 Configuration.GetConnectionString("DefaultConnection")
                 ));
-
+            services.Configure<StripeSettings>(Configuration.GetSection("Stripe"));
             services.AddIdentity<IdentityUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
@@ -64,6 +65,10 @@ namespace BulkyBookStore
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            
+            StripeConfiguration.ApiKey = Configuration.GetSection("Stripe:SecretKey").Get<string>();
+
             app.UseAuthentication();
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
