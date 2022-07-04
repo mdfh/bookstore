@@ -36,6 +36,15 @@ namespace BulkyBookStore
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IEmailSender, EmailSender>();
             services.AddRazorPages().AddRazorRuntimeCompilation();
+
+            // The default implementation for thse paths starts with /Account
+            // but our code is in Identity area. That's why adding custom paths
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.LoginPath = $"/Identity/Account/Login";
+                options.LogoutPath = $"/Identity/Account/Logout";
+                options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -14,6 +14,8 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.6" />
+    <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="6.0.6" />
+    <PackageReference Include="Stripe.net" Version="39.121.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -363,6 +365,43 @@
     <None Remove="BulkyBook.Models\bin\Debug\net6.0\BulkyBook.Models.dll" />
     <None Remove="BulkyBook.Models\obj\Debug\net6.0\ref\BulkyBook.Models.dll" />
     <None Remove="BulkyBook.Models\bin\Debug\net6.0\BulkyBook.Models.pdb" />
+    <None Remove="Microsoft.Extensions.Identity.Core" />
+    <None Remove="Areas\Customer\Views\Cart\" />
+    <None Remove="BulkyBook.DataAccess\bin\Debug\net6.0\BulkyBook.Models.dll" />
+    <None Remove="BulkyBook.DataAccess\bin\Debug\net6.0\BulkyBook.Models.pdb" />
+    <None Remove="BulkyBook.DataAccess\bin\Debug\net6.0\BulkyBook.DataAccess.dll" />
+    <None Remove="BulkyBook.DataAccess\bin\Debug\net6.0\BulkyBook.DataAccess.pdb" />
+    <None Remove="BulkyBook.DataAccess\obj\Debug\net6.0\BulkyBook.DataAccess.csproj.AssemblyReference.cache" />
+    <None Remove="BulkyBook.DataAccess\obj\Debug\net6.0\BulkyBook.DataAccess.GeneratedMSBuildEditorConfig.editorconfig" />
+    <None Remove="BulkyBook.DataAccess\obj\Debug\net6.0\BulkyBook.DataAccess.AssemblyInfoInputs.cache" />
+    <None Remove="BulkyBook.DataAccess\obj\Debug\net6.0\BulkyBook.DataAccess.csproj.CoreCompileInputs.cache" />
+    <None Remove="BulkyBook.DataAccess\obj\Debug\net6.0\BulkyBook.DataAccess.dll" />
+    <None Remove="BulkyBook.DataAccess\obj\Debug\net6.0\refint\BulkyBook.DataAccess.dll" />
+    <None Remove="BulkyBook.DataAccess\obj\Debug\net6.0\BulkyBook.DataAccess.pdb" />
+    <None Remove="BulkyBook.DataAccess\obj\Debug\net6.0\BulkyBook.DataAccess.csproj.CopyComplete" />
+    <None Remove="BulkyBook.DataAccess\obj\Debug\net6.0\BulkyBook.DataAccess.genruntimeconfig.cache" />
+    <None Remove="BulkyBook.DataAccess\obj\Debug\net6.0\ref\BulkyBook.DataAccess.dll" />
+    <None Remove="BulkyBook.Models\obj\Debug\net6.0\BulkyBook.Models.csproj.AssemblyReference.cache" />
+    <None Remove="BulkyBook.Models\obj\Debug\net6.0\BulkyBook.Models.GeneratedMSBuildEditorConfig.editorconfig" />
+    <None Remove="BulkyBook.Models\obj\Debug\net6.0\BulkyBook.Models.AssemblyInfoInputs.cache" />
+    <None Remove="BulkyBook.Models\obj\Debug\net6.0\BulkyBook.Models.csproj.CoreCompileInputs.cache" />
+    <None Remove="BulkyBook.Models\obj\Debug\net6.0\BulkyBook.Models.dll" />
+    <None Remove="BulkyBook.Models\obj\Debug\net6.0\refint\BulkyBook.Models.dll" />
+    <None Remove="BulkyBook.Models\obj\Debug\net6.0\BulkyBook.Models.pdb" />
+    <None Remove="BulkyBook.Models\bin\Debug\net6.0\BulkyBook.Models.dll" />
+    <None Remove="BulkyBook.Models\obj\Debug\net6.0\ref\BulkyBook.Models.dll" />
+    <None Remove="BulkyBook.Models\bin\Debug\net6.0\BulkyBook.Models.pdb" />
+    <None Remove="BulkyBook.Utility\obj\Debug\net6.0\BulkyBook.Utility.csproj.AssemblyReference.cache" />
+    <None Remove="BulkyBook.Utility\obj\Debug\net6.0\BulkyBook.Utility.GeneratedMSBuildEditorConfig.editorconfig" />
+    <None Remove="BulkyBook.Utility\obj\Debug\net6.0\BulkyBook.Utility.AssemblyInfoInputs.cache" />
+    <None Remove="BulkyBook.Utility\obj\Debug\net6.0\BulkyBook.Utility.csproj.CoreCompileInputs.cache" />
+    <None Remove="BulkyBook.Utility\obj\Debug\net6.0\BulkyBook.Utility.dll" />
+    <None Remove="BulkyBook.Utility\obj\Debug\net6.0\refint\BulkyBook.Utility.dll" />
+    <None Remove="BulkyBook.Utility\obj\Debug\net6.0\BulkyBook.Utility.pdb" />
+    <None Remove="BulkyBook.Utility\bin\Debug\net6.0\BulkyBook.Utility.dll" />
+    <None Remove="BulkyBook.Utility\obj\Debug\net6.0\ref\BulkyBook.Utility.dll" />
+    <None Remove="BulkyBook.Utility\bin\Debug\net6.0\BulkyBook.Utility.pdb" />
+    <None Remove="Stripe.net" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Views\Category\" />
@@ -372,6 +411,7 @@
     <Folder Include="wwwroot\images\" />
     <Folder Include="wwwroot\images\products\" />
     <Folder Include="Areas\Admin\Views\Company\" />
+    <Folder Include="Areas\Customer\Views\Cart\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="BulkyBook.DataAccess\Class1.cs" />
@@ -468,6 +508,24 @@
     <Compile Remove="BulkyBook.Utility\SD.cs" />
     <Compile Remove="BulkyBook.Models\obj\Debug\net6.0\BulkyBook.Models.AssemblyInfo.cs" />
     <Compile Remove="BulkyBook.Utility\obj\Debug\net6.0\BulkyBook.Utility.AssemblyInfo.cs" />
+    <Compile Remove="BulkyBook.DataAccess\Migrations\20220702215539_addCompanyId.cs" />
+    <Compile Remove="BulkyBook.DataAccess\Migrations\20220702215539_addCompanyId.Designer.cs" />
+    <Compile Remove="BulkyBook.DataAccess\Migrations\20220703063040_addShoppingCart.Designer.cs" />
+    <Compile Remove="BulkyBook.DataAccess\Migrations\20220703063040_addShoppingCart.cs" />
+    <Compile Remove="BulkyBook.DataAccess\Repository\ShoppingCartRepository.cs" />
+    <Compile Remove="BulkyBook.DataAccess\Repository\IRepository\IShoppingCartRepository.cs" />
+    <Compile Remove="BulkyBook.DataAccess\Repository\IRepository\ICoverTypeRepository %28copy%29.cs" />
+    <Compile Remove="BulkyBook.DataAccess\Repository\IRepository\ICoverTypeRepository %28another copy%29.cs" />
+    <Compile Remove="BulkyBook.DataAccess\Repository\OrderHeaderRepository.cs" />
+    <Compile Remove="BulkyBook.DataAccess\Repository\OrderHeaderRepository %28copy%29.cs" />
+    <Compile Remove="BulkyBook.DataAccess\Repository\ApplicationRepository.cs" />
+    <Compile Remove="BulkyBook.DataAccess\Repository\IRepository\IApplicationUserRepository.cs" />
+    <Compile Remove="BulkyBook.DataAccess\obj\Debug\net6.0\BulkyBook.DataAccess.AssemblyInfo.cs" />
+    <Compile Remove="BulkyBook.Models\ShoppingCartVM.cs" />
+    <Compile Remove="BulkyBook.Models\OrderHeader.cs" />
+    <Compile Remove="BulkyBook.Models\OrderDetail.cs" />
+    <Compile Remove="BulkyBook.Models\obj\Debug\net6.0\BulkyBook.Models.AssemblyInfo.cs" />
+    <Compile Remove="BulkyBook.Utility\obj\Debug\net6.0\BulkyBook.Utility.AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="BulkyBook.DataAccess\obj\BulkyBook.DataAccess.csproj.nuget.dgspec.json" />
@@ -529,6 +587,10 @@
     <Content Remove="BulkyBook.DataAccess\bin\Debug\net6.0\BulkyBook.DataAccess.runtimeconfig.json" />
     <Content Remove="BulkyBook.Utility\bin\Debug\net6.0\BulkyBook.Utility.deps.json" />
     <Content Remove="BulkyBook.Models\bin\Debug\net6.0\BulkyBook.Models.deps.json" />
+    <Content Remove="BulkyBook.DataAccess\bin\Debug\net6.0\BulkyBook.DataAccess.deps.json" />
+    <Content Remove="BulkyBook.DataAccess\bin\Debug\net6.0\BulkyBook.DataAccess.runtimeconfig.json" />
+    <Content Remove="BulkyBook.Models\bin\Debug\net6.0\BulkyBook.Models.deps.json" />
+    <Content Remove="BulkyBook.Utility\bin\Debug\net6.0\BulkyBook.Utility.deps.json" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="BulkyBook.DataAccess\BulkyBook.DataAccess.csproj">
