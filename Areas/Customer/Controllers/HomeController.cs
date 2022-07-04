@@ -56,10 +56,10 @@ namespace BulkyBookStore.Controllers
             if (cartFromDb == null)
                 _unitOfWork.ShoppingCart.Add(shoppingCart);
             else
-                _unitOfWork.ShoppingCart.UpdateCount(shoppingCart, shoppingCart.Count);
+                _unitOfWork.ShoppingCart.UpdateCount(cartFromDb, cartFromDb.Count);
             _unitOfWork.Save();
 
-            return View(nameof(Index));
+            return RedirectToAction(nameof(Index));
         }
 
         public IActionResult Privacy()
