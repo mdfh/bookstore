@@ -34,11 +34,14 @@ namespace BulkyBook.DataAccess.Repository
             return query.ToList();
         }
 
-        public T GetFirstOrDefault(Expression<Func<T, bool>> filter, string? includeProperties = null)
+        public T GetFirstOrDefault(Expression<Func<T, bool>> filter, string? includeProperties = null, bool tracked = true)
         {
             IQueryable<T> query = dbSet;
 
-            if(filter != null)
+            if (!tracked)
+                query = dbSet.AsNoTracking();
+
+            if (filter != null)
                 query = query.Where(filter);
 
             if (includeProperties != null)
